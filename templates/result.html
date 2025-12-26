@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="glass-card result-card">
+
+            <div class="icon-result">
+                {% if prediction == 1 %}
+                    <i class="fas fa-heart-broken danger-icon"></i>
+                {% else %}
+                    <i class="fas fa-heartbeat success-icon"></i>
+                {% endif %}
+            </div>
+
+            <h1>Diagnosis Report</h1>
+
+            <div class="result-badge {% if prediction == 1 %}badge-danger{% else %}badge-success{% endif %}">
+                {% if prediction == 1 %}
+                    HIGH RISK DETECTED
+                {% else %}
+                    PATIENT IS HEALTHY
+                {% endif %}
+            </div>
+
+            <div class="metrics-container">
+                <div class="metric-box">
+                    <span class="label">AI Model</span>
+                    <span class="value">{{ model }}</span>
+                </div>
+
+                {% if probability %}
+                <div class="metric-box">
+                    <span class="label">Confidence</span>
+                    <span class="value">{{ probability }}%</span>
+                </div>
+                {% endif %}
+            </div>
+
+            <p class="disclaimer">
+                This analysis is based on your <strong>Best Trained Model</strong>.
+            </p>
+
+            <a href="/" class="btn-primary btn-back">
+                <i class="fas fa-arrow-left"></i> Analyze New Patient
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>

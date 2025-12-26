@@ -1,0 +1,22 @@
+# 1. Virtual Environment (Crucial - never upload this)
+.venv/
+venv/
+env/
+Lib/
+Scripts/
+
+# 2. Python Compiled Files (Junk)
+__pycache__/
+*.pyc
+
+# 3. Logs (Created by your main.py and app.py)
+logs/
+*.log
+
+# 4. IDE Settings (VS Code / PyCharm user preferences)
+.vscode/
+.idea/
+
+# 5. OS Generated Files (Mac/Windows thumbnails)
+.DS_Store
+Thumbs.db

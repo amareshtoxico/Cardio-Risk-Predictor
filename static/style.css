@@ -1,0 +1,178 @@
+/* --- GLOBAL RESET & VARIABLES --- */
+:root {
+    --primary: #4e54c8;
+    --secondary: #8f94fb;
+    --danger: #ff6b6b;
+    --success: #1dd1a1;
+    --glass: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* --- GLASS CARD --- */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-section h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* --- MODEL SELECTION --- */
+.model-selection {
+    background: rgba(78, 84, 200, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(78, 84, 200, 0.2);
+}
+
+.model-selection label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.model-selection select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* --- INPUT GRID --- */
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Important for padding */
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.1);
+}
+
+/* --- BUTTONS --- */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: inherit;
+}
+
+button:active { transform: scale(0.98); }
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+/* --- RESULT PAGE STYLES --- */
+.result-card { text-align: center; max-width: 500px; margin: 0 auto; }
+
+.icon-result { font-size: 4rem; margin-bottom: 10px; }
+.danger-icon { color: var(--danger); animation: pulse 1s infinite; }
+.success-icon { color: var(--success); }
+
+.result-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+.badge-danger { background: var(--danger); box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); }
+.badge-success { background: var(--success); box-shadow: 0 4px 15px rgba(29, 209, 161, 0.4); }
+
+.metrics-container {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.metric-box { display: flex; flex-direction: column; }
+.metric-box .label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+.metric-box .value { font-size: 1.2rem; font-weight: bold; color: #333; }
+
+.btn-back { display: inline-block; width: 100%; text-decoration: none; box-sizing: border-box; }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

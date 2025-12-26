@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeartGuard AI | Best Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="glass-card">
+            <div class="header-section">
+                <h1>❤️ HeartGuard AI</h1>
+                <p>Powered by RandomForest (98.5% Accuracy)</p>
+            </div>
+
+            <form action="/predict" method="post" id="predictionForm">
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" name="age" placeholder="e.g. 45" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Sex</label>
+                        <select name="sex" required>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Chest Pain (CP)</label>
+                        <select name="cp" required>
+                            <option value="0">Typical Angina</option>
+                            <option value="1">Atypical Angina</option>
+                            <option value="2">Non-anginal</option>
+                            <option value="3">Asymptomatic</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Resting BP</label>
+                        <input type="number" name="trestbps" placeholder="e.g. 120" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Cholesterol</label>
+                        <input type="number" name="chol" placeholder="e.g. 240" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Fasting BS > 120</label>
+                        <select name="fbs" required>
+                            <option value="1">True</option>
+                            <option value="0">False</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Resting ECG</label>
+                        <select name="restecg" required>
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Abnormality</option>
+                            <option value="2">LV Hypertrophy</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Max Heart Rate</label>
+                        <input type="number" name="thalach" placeholder="e.g. 150" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Exercise Angina</label>
+                        <select name="exang" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Oldpeak</label>
+                        <input type="number" step="0.1" name="oldpeak" placeholder="e.g. 1.0" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Slope</label>
+                        <select name="slope" required>
+                            <option value="0">Upsloping</option>
+                            <option value="1">Flat</option>
+                            <option value="2">Downsloping</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Major Vessels (CA)</label>
+                        <input type="number" name="ca" placeholder="0-3" min="0" max="3" required>
+                    </div>
+
+                    <div class="input-group" style="grid-column: span 3;">
+                        <label>Thalassemia</label>
+                        <select name="thal" required>
+                            <option value="1">Normal</option>
+                            <option value="2">Fixed Defect</option>
+                            <option value="3">Reversible Defect</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" onclick="fillRandom()">
+                        <i class="fas fa-dice"></i> Random Values
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-heartbeat"></i> Analyze Patient
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function fillRandom() {
+            const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+            const randFloat = (min, max) => (Math.random() * (max - min) + min).toFixed(1);
+            const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+            document.getElementsByName('age')[0].value = rand(29, 77);
+            document.getElementsByName('sex')[0].value = pick(["0", "1"]);
+            document.getElementsByName('cp')[0].value = pick(["0", "1", "2", "3"]);
+            document.getElementsByName('trestbps')[0].value = rand(94, 200);
+            document.getElementsByName('chol')[0].value = rand(126, 564);
+            document.getElementsByName('fbs')[0].value = pick(["0", "1"]);
+            document.getElementsByName('restecg')[0].value = pick(["0", "1", "2"]);
+            document.getElementsByName('thalach')[0].value = rand(71, 202);
+            document.getElementsByName('exang')[0].value = pick(["0", "1"]);
+            document.getElementsByName('oldpeak')[0].value = randFloat(0, 6.2);
+            document.getElementsByName('slope')[0].value = pick(["0", "1", "2"]);
+            document.getElementsByName('ca')[0].value = rand(0, 3);
+            document.getElementsByName('thal')[0].value = pick(["1", "2", "3"]);
+        }
+    </script>
+</body>
+</html>
