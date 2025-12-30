@@ -1,4 +1,5 @@
 # ❤️ Cardio risk Predictor – Machine Learning Web Application
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20App-success?style=for-the-badge&logo=render)](https://cardio-risk-predictor.onrender.com)
 
 A complete **end-to-end Machine Learning project** that predicts the likelihood of heart disease based on patient health parameters.  
 This project covers the **entire ML lifecycle** — from data preprocessing and feature engineering to model training, evaluation, and deployment using Flask.
